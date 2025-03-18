@@ -167,11 +167,26 @@ class RepositoryPasajeroTest {
 
     // Tests para queries JPQL personalizadas
     @Test
-    void encontrarPasajerosConReservasPorNombre() {
-        List<Pasajero> result = pasajeroRepository.encontrarPasajerosConReservasPorNombre("Juan Pérez");
+    void findByReservaId() {
+        // Obtener la reserva creada en el setUp
+        List<Reserva> reservas = reservaRepository.findAll();
+        assertFalse(reservas.isEmpty());
+        Long reservaId = reservas.get(0).getIdReserva();
 
+        // Ejecutar la consulta
+        List<Pasajero> result = pasajeroRepository.findByReservaId(reservaId);
+
+        // Verificar resultados
         assertEquals(1, result.size());
-        assertFalse(result.get(0).getReservas().isEmpty());
+        assertEquals(pasajero1.getIdPasajero(), result.get(0).getIdPasajero());
+        assertEquals("Juan Pérez", result.get(0).getNombre());
+    }
+
+    @Test
+    void findByReservaId_NotFound() {
+        // ID de reserva inexistente
+        List<Pasajero> result = pasajeroRepository.findByReservaId(999L);
+        assertTrue(result.isEmpty());
     }
 
     @Test
