@@ -90,4 +90,32 @@ public class PasajeroController {
         List<Pasajero> pasajeros = pasajeroService.findByReservaId(reservaId);
         return ResponseEntity.ok(pasajeros);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pasajero> updatePasajero(
+            @PathVariable Long id,
+            @RequestBody Pasajero pasajero) {
+        Pasajero actualizado = pasajeroService.updatePasajero(id, pasajero);
+        return ResponseEntity.ok(actualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePasajero(@PathVariable Long id) {
+        pasajeroService.deletePasajero(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/greater-than/{id}")
+    public ResponseEntity<List<Pasajero>> getPasajerosIdGreaterThan(
+            @PathVariable Long id) {
+        List<Pasajero> pasajeros = pasajeroService.findByIdPasajeroGreaterThan(id);
+        return ResponseEntity.ok(pasajeros);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> countByNombre(
+            @RequestParam String nombre) {
+        Long count = pasajeroService.contarPorNombre(nombre);
+        return ResponseEntity.ok(count);
+    }
 }
