@@ -18,8 +18,8 @@ public interface RepositoryPasajero extends JpaRepository<Pasajero, Long> {
 
     List<Pasajero> findByIdPasajeroGreaterThan(Long id);
 
-    @Query("SELECT p FROM Pasajero p JOIN FETCH p.reservas WHERE p.nombre = :nombre")
-    List<Pasajero> encontrarPasajerosConReservasPorNombre(@Param("nombre") String nombre);
+    @Query("SELECT p FROM Pasajero p JOIN p.reservas r WHERE r.idReserva = :reservaId")
+    List<Pasajero> findByReservaId(@Param("reservaId") Long reservaId);
 
     @Query("select p from Pasajero p order by length(p.nid) asc limit 1")
     Pasajero encontrarPasajeroConNidMasCorto();

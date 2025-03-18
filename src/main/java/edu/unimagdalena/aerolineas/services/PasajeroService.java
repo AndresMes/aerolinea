@@ -52,8 +52,8 @@ public class PasajeroService {
         return pasajeroRepository.findByIdPasajeroGreaterThan(id);
     }
 
-    public List<Pasajero> encontrarPasajerosConReservasPorNombre(@Param("nombre") String nombre){
-        return pasajeroRepository.encontrarPasajerosConReservasPorNombre(nombre);
+    public List<Pasajero> findByReservaId(Long reservaId) {
+        return pasajeroRepository.findByReservaId(reservaId);
     }
 
     public Pasajero encontrarPasajeroConNidMasCorto(){

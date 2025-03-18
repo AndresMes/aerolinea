@@ -83,4 +83,11 @@ public class PasajeroController {
     public ResponseEntity<String> handleInvalidInput(IllegalArgumentException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
+
+    @GetMapping("/por-reserva/{reservaId}")
+    public ResponseEntity<List<Pasajero>> getPasajerosPorReservaId(
+            @PathVariable Long reservaId) {
+        List<Pasajero> pasajeros = pasajeroService.findByReservaId(reservaId);
+        return ResponseEntity.ok(pasajeros);
+    }
 }
