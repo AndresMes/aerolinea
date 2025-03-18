@@ -1,12 +1,14 @@
 package edu.unimagdalena.aerolineas.services;
 
 import edu.unimagdalena.aerolineas.entities.Pasajero;
+import edu.unimagdalena.aerolineas.exceptions.PasajeroNotFoundException;
 import edu.unimagdalena.aerolineas.repositories.RepositoryPasajero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 //Declaramos que es servicio
@@ -68,6 +70,27 @@ public class PasajeroService {
 
     public Pasajero encontrarPasajeroConNombreMasLargo(){
         return pasajeroRepository.encontrarPasajeroConNombreMasLargo();
+    }
+
+    public Optional<Pasajero> findById(Long id) {
+        return pasajeroRepository.findById(id);
+    }
+
+    public Pasajero updatePasajero(Long id, Pasajero pasajeroActualizado) {
+        return pasajeroRepository.findById(id)
+                .map(pasajero -> {
+                    pasajero.setNombre(pasajeroActualizado.getNombre());
+                    pasajero.setNid(pasajeroActualizado.getNid());
+                    return pasajeroRepository.save(pasajero);
+                })
+                .orElseThrow(() -> new PasajeroNotFoundException(id));
+    }
+
+    public void deletePasajero(Long id) {
+        if (!pasajeroRepository.existsById(id)) {
+            throw new PasajeroNotFoundException(id);
+        }
+        pasajeroRepository.deleteById(id);
     }
 
 
