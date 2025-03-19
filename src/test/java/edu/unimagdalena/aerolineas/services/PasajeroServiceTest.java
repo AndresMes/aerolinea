@@ -25,7 +25,7 @@ class PasajeroServiceTest {
     private RepositoryPasajero pasajeroRepository;
 
     @InjectMocks
-    private PasajeroService pasajeroService;
+    private PasajeroServiceImpl pasajeroService;
 
     public PasajeroServiceTest(){
         MockitoAnnotations.openMocks(this);
