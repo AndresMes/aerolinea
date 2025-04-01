@@ -32,7 +32,7 @@ public class PasajeroController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pasajero> getPasajeroById(@PathVariable Long id) {
+    public ResponseEntity<Pasajero> getPasajeroById(@PathVariable Long id) { //@PathVariable(id) Long x
         Pasajero pasajero = pasajeroService.findById(id)
                 .orElseThrow(() -> new PasajeroNotFoundException(id));
         return ResponseEntity.ok(pasajero);
