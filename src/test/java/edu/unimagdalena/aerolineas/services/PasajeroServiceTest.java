@@ -6,6 +6,7 @@ import edu.unimagdalena.aerolineas.entities.Reserva;
 import edu.unimagdalena.aerolineas.entities.Vuelo;
 import edu.unimagdalena.aerolineas.exceptions.PasajeroNotFoundException;
 import edu.unimagdalena.aerolineas.repositories.RepositoryPasajero;
+import edu.unimagdalena.aerolineas.services.impl.PasajeroServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

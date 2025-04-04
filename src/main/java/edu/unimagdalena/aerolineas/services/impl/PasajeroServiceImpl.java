@@ -1,8 +1,9 @@
-package edu.unimagdalena.aerolineas.services;
+package edu.unimagdalena.aerolineas.services.impl;
 
 import edu.unimagdalena.aerolineas.entities.Pasajero;
 import edu.unimagdalena.aerolineas.exceptions.PasajeroNotFoundException;
 import edu.unimagdalena.aerolineas.repositories.RepositoryPasajero;
+import edu.unimagdalena.aerolineas.services.interfaces.PasajeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PasajeroServiceImpl implements PasajeroService{
+public class PasajeroServiceImpl implements PasajeroService {
     private final RepositoryPasajero pasajeroRepository;
 
     @Autowired
