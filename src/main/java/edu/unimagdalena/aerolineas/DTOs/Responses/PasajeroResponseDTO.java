@@ -1,4 +1,4 @@
-package edu.unimagdalena.aerolineas.DTO;
+package edu.unimagdalena.aerolineas.DTOs.Responses;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PasajeroResponseDTO {
-
+    //servidor envía al cliente
     private Long idPasajero;
     private String nombre;
     private String nid;
