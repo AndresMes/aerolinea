@@ -17,8 +17,8 @@ public interface PasajeroMapper {
     @Mapping(source = "idPasajero", target = "idPasajero")
     @Mapping(source = "nombre", target = "nombre")
     @Mapping(source = "nid", target = "nid")
-    MapStruct mapea automáticamente los campos con el mismo nombre.
      */
+    //MapStruct mapea automáticamente los campos con el mismo nombre.
 
     // RequestDTO -> Entidad (Para creación)
     @Mapping(target = "idPasajero", ignore = true)
