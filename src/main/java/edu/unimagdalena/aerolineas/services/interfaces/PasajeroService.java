@@ -1,4 +1,4 @@
-package edu.unimagdalena.aerolineas.services;
+package edu.unimagdalena.aerolineas.services.interfaces;
 
 import edu.unimagdalena.aerolineas.entities.Pasajero;
 import org.springframework.stereotype.Service;

@@ -2,7 +2,7 @@ package edu.unimagdalena.aerolineas.controllers;
 
 import edu.unimagdalena.aerolineas.entities.Pasajero;
 import edu.unimagdalena.aerolineas.exceptions.PasajeroNotFoundException;
-import edu.unimagdalena.aerolineas.services.PasajeroService;
+import edu.unimagdalena.aerolineas.services.interfaces.PasajeroService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

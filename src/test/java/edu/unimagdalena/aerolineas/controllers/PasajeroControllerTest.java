@@ -3,7 +3,7 @@ package edu.unimagdalena.aerolineas.controllers;
 import edu.unimagdalena.aerolineas.entities.Pasajero;
 import edu.unimagdalena.aerolineas.entities.Reserva;
 import edu.unimagdalena.aerolineas.exceptions.PasajeroNotFoundException;
-import edu.unimagdalena.aerolineas.services.PasajeroService;
+import edu.unimagdalena.aerolineas.services.interfaces.PasajeroService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,7 +12,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
